@@ -14,6 +14,9 @@ import java.util.List;
 @RequestMapping("/drivers")
 @RestController
 public class DriverController {
+    /**
+     * Class to represent Driver Controller, this is class to work with REST
+     */
     @Autowired
     private DriverService driverService = new DriverService();
 
@@ -41,7 +44,7 @@ public class DriverController {
     }
     @PutMapping(path = "/{id}")
     public ResponseEntity<Driver> updateDriver(@PathVariable("id") Integer driverId,@RequestBody Driver driver){
-        return driverService.updateDriver(driverId,driver);
+        return driverService.updateDriver(driverId, driver);
     }
 
 

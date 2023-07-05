@@ -1,5 +1,6 @@
 package ua.lviv.iot.coursework.course_work.dataaccess;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.springframework.stereotype.Component;
 import ua.lviv.iot.coursework.course_work.models.Driver;
 
@@ -15,6 +16,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+@SuppressFBWarnings("DM_DEFAULT_ENCODING")
 @Component
 public class DriverReader {
     private String directoryPath;
@@ -30,14 +32,12 @@ public class DriverReader {
 
     public DriverReader(){
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String currentData = dateFormat.format(new Date());
         this.directoryPath = "DriverData";
     }
 
     public Map<Integer, Driver> readDriversFromCsv() {
         Date currentDate = new Date();
         SimpleDateFormat monthFormat = new SimpleDateFormat("MM");
-        String currentMonth = monthFormat.format(currentDate);
         Map<Integer, Driver> drivers = new HashMap<>();
 
         Path path = Paths.get(directoryPath);
